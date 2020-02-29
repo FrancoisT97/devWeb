@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a811a072-5d07-4bf1-ae03-f16fcf0dc0f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cal/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cal/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cal/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cal/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cal/calendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/agenda/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ephetienne/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ephetienne/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ephetienne/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ephetienne/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cal/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +36,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/django-calendar-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -92,6 +83,7 @@
       <workItem from="1582643696179" duration="2900000" />
       <workItem from="1582902410053" duration="216000" />
       <workItem from="1582978052082" duration="11530000" />
+      <workItem from="1582990798204" duration="16000" />
     </task>
     <servers />
   </component>
