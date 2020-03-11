@@ -11,9 +11,9 @@ mycursor = mydb.cursor()
 
 
 
-def selectDb():
+def selectDb(nomDb):
 
-    sql = "Select * from user"
+    sql = ("Select * from {0}").format(nomDb)
 
     mycursor.execute(sql)
 
@@ -37,8 +37,8 @@ def insertDb(nom, mdp):
     print(mycursor.rowcount, "record inserted.")
 
 
-def updateDb():
-    sql = "UPDATE user SET name = 'Canyon' WHERE id = '2'"
+def updateDb(id):
+    sql = ("UPDATE user SET name = 'Canyon' WHERE id = {0}").format(id)
 
     mycursor.execute(sql)
 
@@ -47,12 +47,14 @@ def updateDb():
     print(mycursor.rowcount, "record(s) affected")
 
 
-def deleteUser():
-    sql = "DELETE FROM user WHERE id = 5"
+def deleteUser(id):
+    sql = ("DELETE FROM user WHERE id = {0}").format(id)
 
     mycursor.execute(sql)
 
     mydb.commit()
 
     print(mycursor.rowcount, "record(s) deleted")
+
+
 
