@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout Evénement</title>
+</head>
+<body>
+    {% if envoi %}
+        Evénement bien enregistrer!
+    {% endif %}
+    <h1>Page d'insertion d'évenement</h1>
+    <p>Evenement:</p>
+<form action="{% url "insertEvent" %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" id="submit" value="Submit" />
+</form>
+
+</body>
+</html>

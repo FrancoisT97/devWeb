@@ -64,5 +64,16 @@ def insertEvent(date, event, description):
 
     print(mycursor.rowcount, "record inserted.")
 
+def insertInscription(nom, prenom, dateNaiss, numTel, emailParent, remarques):
+    sql = ("INSERT INTO inscrits (nom, prenom, dateNaiss, numTel, emailParent, remarques) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')").format(nom, prenom,dateNaiss, numTel, emailParent, remarques)
+    # date au format '2020-03-11'
+
+    print(sql)
+    mycursor.execute(sql)
+
+    mydb.commit()
+
+
+
 
 
