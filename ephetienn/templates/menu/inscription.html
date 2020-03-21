@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page inscription</title>
+</head>
+<body>
+    {% if envoi %}
+        Votre inscription a bien été enregistrer!
+
+
+    {% endif %}
+    <h1>Bienvenue sur la page d'inscription</h1>
+    <p>Vous trouverz ci dessous les un formulaire d'inscription</p>
+<form action="{% url "inscription" %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" id="submit" value="Submit" />
+</form>
+
+</body>
+</html>
