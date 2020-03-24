@@ -30,28 +30,7 @@ def insertUser(nom, mdp):
     mydb.commit()
 
     print(mycursor.rowcount, "record inserted.")
-
-
-def updateUser(id):
-    sql = ("UPDATE user SET name = 'Canyon' WHERE id = {0}").format(id)
-
-    mycursor.execute(sql)
-
-    mydb.commit()
-
-    print(mycursor.rowcount, "record(s) affected")
-
-
-def deleteData(nomDb, id):
-    sql = ("DELETE FROM {0} WHERE id = {1}").format(nomDb, id)
-
-    mycursor.execute(sql)
-
-    mydb.commit()
-
-    print(mycursor.rowcount, "record(s) deleted")
-
-
+    
 def insertEvent(date, event, description):
     sql = ("INSERT INTO event (dateEvent, nameEvent, descEvent) VALUES ('{0}', '{1}', '{2}')").format(date, event, description)
     # date au format '2020-03-11'
@@ -74,6 +53,28 @@ def insertInscription(nom, prenom, dateNaiss, numTel, emailParent, remarques):
     mydb.commit()
 
 
+
+
+
+
+def updateUser(id):
+    sql = ("UPDATE user SET name = 'Canyon' WHERE id = {0}").format(id)
+
+    mycursor.execute(sql)
+
+    mydb.commit()
+
+    print(mycursor.rowcount, "record(s) affected")
+
+
+def deleteData(nomDb, id):
+    sql = ("DELETE FROM {0} WHERE id = {1}").format(nomDb, id)
+
+    mycursor.execute(sql)
+
+    mydb.commit()
+
+    print(mycursor.rowcount, "record(s) deleted")
 
 
 
