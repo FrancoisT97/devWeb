@@ -9,7 +9,7 @@ class formInscription(forms.Form):
     remarques = forms.CharField(max_length=1000)
 
 class formEvent(forms.Form):
-    date = forms.DateField(label="date de l'évenemnt'")
+    date = forms.DateField(label="date de l'évenement")
     nom = forms.CharField(max_length=45)
     description = forms.CharField(max_length=1000)
 
