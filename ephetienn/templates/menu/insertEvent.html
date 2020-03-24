@@ -9,12 +9,12 @@
         Evénement bien enregistrer!
     {% endif %}
     <h1>Page d'insertion d'évenement</h1>
-    <p>Evenement:</p>
+    <p>Introduire l'événement:</p>
 <form action="{% url "insertEvent" %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" id="submit" value="Submit" />
 </form>
-
+     <a href="http://127.0.0.1:8000/menu/acceuil/"> <input type="button" value="retour acceuil"> </a>
 </body>
 </html>
