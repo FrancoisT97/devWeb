@@ -11,7 +11,7 @@
 
     {% endif %}
     <h1>Bienvenue sur la page d'inscription</h1>
-    <p>Vous trouverz ci dessous les un formulaire d'inscription</p>
+    <p>Vous trouverz ci dessous le formulaire pour l'inscription</p>
 <form action="{% url "inscription" %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
