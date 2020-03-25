@@ -1,12 +1,18 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from .db_param import insertEvent
 from .forms import formInscription
 from .db_param import insertInscription
 from .forms import formEvent
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+from .envoiemail import envoi, envoiCopie
+
+
 
 def home(request):
-    return render(request,'menu/acceuil.html')
+    return render(request, 'menu/acceuil.html')
+
 
 def inscription(request):
     # Construire le formulaire, soit avec les données postées,
@@ -58,3 +64,29 @@ def event(request):
 
     # Quoiqu'il arrive, on affiche la page du formulaire.
     return render(request, 'menu/insertEvent.html', locals())
+
+
+def emailView(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            renvoi = form.cleaned_data['renvoi']
+            print(renvoi)
+            if renvoi:
+                envoiCopie(from_email, subject, message)
+            try:
+                envoi(from_email, subject, message)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "menu/contact.html", locals())
+
+def successView(request):
+    return HttpResponse('Success! Thank you for your message.')
+
+
