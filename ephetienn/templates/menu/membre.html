@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>membres</title>
+</head>
+<body>
+    <p>Liste des membres : <br {%for i in afficher%} {{ i }} <br>{% endfor %} </p>
+    <p>quel choix voulez vou faire: </p>
+
+    <h2>modifier: </h2>
+        <a href="http://127.0.0.1:8000/menu/modifierMembre/"> <input type="button" value="modifier"> </a>
+    <h2>Supprimer:</h2>
+        <a href="http://127.0.0.1:8000/menu/supMembre/"> <input type="button" value="supprimerMembre"> </a>
+</body>
+</html>

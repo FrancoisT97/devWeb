@@ -9,14 +9,23 @@
 
 
     <p>paragraphe test</p>
-
-    <a href="http://127.0.0.1:8000/menu/insertEvent/"> <input type="button" value="ajouter un événement"> </a>
     <br>
     <br>
     <a href="http://127.0.0.1:8000/menu/inscription/"> <input type="button" value="inscription"> </a>
     <br>
     <br>
     <a href="http://127.0.0.1:8000/menu/contact/"> <input type="button" value="contact"> </a>
+    <br>
+    <br>
+    <a href="http://127.0.0.1:8000/menu/affEvent/"> <input type="button" value="Voir les événements"> </a>
+
+    <p> espace admin </p>
+
+    <form action="{% url "admin" %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <input type="submit" id="submit" value="Submit" >
+    </form>
 
 
 </body>

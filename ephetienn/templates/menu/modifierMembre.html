@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un membre</title>
+</head>
+<body onload="">
+
+<p>Liste des membres : {{ afficher }}</p>
+
+ <h1>Membre à modifier</h1>
+    {% if envoi %}
+        <p>modif OK  {{ afficher }}</p>
+    {% endif %}
+    <div>
+         <h2> modification Membre</h2>
+    <p>Introduire membre</p>
+        <form action="{% url "modifierMembre" %}" method="post">
+             {% csrf_token %}
+             {{ form.as_p }}
+         <input type="submit" id="submit" value="Submit" />
+        </form>
+    </div>
+    <a href="http://127.0.0.1:8000/menu/acceuil/"> <input type="button" value="retour acceuil"> </a>
+</body>
+</html>
