@@ -149,32 +149,6 @@ def affMembre(request):
 
     return render(request, "menu/membre.html", locals())
 
-def modifMembre(request):
-
-    answer=[]
-    form = forms.modifierMembre(request.POST or None)
-    # Nous vérifions que les données envoyées sont valides
-    # Cette méthode renvoie False s'il n'y a pas de données
-    # dans le formulaire ou qu'il contient des erreurs.
-    if form.is_valid():
-        id = form.cleaned_data['id']
-        nom = form.cleaned_data['nom']
-        prenom = form.cleaned_data['prenom']
-        dateNaiss = form.cleaned_data['dateNaiss']
-        numeroTel = form.cleaned_data['numeroTel']
-        emailParents = form.cleaned_data['emailParents']
-        remarques = form.cleaned_data['remarques']
-
-        answer = selectMembre(id)
-        print("answer: ", answer)
-        updateMembre(id, nom, prenom, dateNaiss, numeroTel, emailParents, remarques)
-        envoi = True
-
-    afficher = answer
-
-
-    return render(request, "menu/modifierMembre.html", locals())
-
 def affichageMembres():
     liste = []
     afficher= " "
@@ -204,13 +178,61 @@ def affichageMembres():
 
     return liste
 
-def affEvent(request):
+def modifMembre(request):
 
-    eventAvenir = afficherInfoDb('event')
+    answer=[]
+    form = forms.modifierMembre(request.POST or None)
+    # Nous vérifions que les données envoyées sont valides
+    # Cette méthode renvoie False s'il n'y a pas de données
+    # dans le formulaire ou qu'il contient des erreurs.
+    if form.is_valid():
+        id = form.cleaned_data['id']
+        nom = form.cleaned_data['nom']
+        prenom = form.cleaned_data['prenom']
+        dateNaiss = form.cleaned_data['dateNaiss']
+        numeroTel = form.cleaned_data['numeroTel']
+        emailParents = form.cleaned_data['emailParents']
+        remarques = form.cleaned_data['remarques']
 
-    #TODO voir pour faire fonction commune afficher Membres et Events
-    #TODO Afficher EVENTS
+        answer = selectMembre(id)
+        print("answer: ", answer)
+        updateMembre(id, nom, prenom, dateNaiss, numeroTel, emailParents, remarques)
+        envoi = True
+
+    afficher = answer
+
+
+    return render(request, "menu/modifierMembre.html", locals())
+
+def affichageEvent():
+
+    #Print utiliser pour debug
+    eventAvenir = []
+    afficher = " "
+
+    events = afficherInfoDb('event')
+    print(type(events))
+    print(events)
+
+    i = 0
+    while i < len(events):
+        print(events[i][0])
+        eventAvenir += [[events[i][0], events[i][1], events[i][2]]]
+        i += 1
+
+    print("eventAvenir:", eventAvenir)
+    print(type(eventAvenir))
+
+
+    print("résultat désirer: ")
+    for nom, date, description in eventAvenir:
+        afficher += ("nom: {} date: {} description : {} \n".format(nom, date, description))
+        print("test: ", afficher)
 
     return eventAvenir
 
+def affEvent(request):
 
+    eventAvenir = affichageEvent()
+
+    return render(request, "menu/affEvent.html", locals())
