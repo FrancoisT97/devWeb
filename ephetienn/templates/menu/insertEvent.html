@@ -2,19 +2,26 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ajout Evénement</title>
+    <title>Evénement</title>
 </head>
 <body>
+    <h1>Page gestion des événements</h1>
     {% if envoi %}
         Evénement bien enregistrer!
     {% endif %}
-    <h1>Page d'insertion d'évenement</h1>
+    <div>
+         <h2> Ajout d'un nouvel évenement</h2>
     <p>Introduire l'événement:</p>
-<form action="{% url "insertEvent" %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" id="submit" value="Submit" />
-</form>
+        <form action="{% url "insertEvent" %}" method="post">
+             {% csrf_token %}
+             {{ form.as_p }}
+         <input type="submit" id="submit" value="Submit" />
+        </form>
+    </div>
+
+
      <a href="http://127.0.0.1:8000/menu/acceuil/"> <input type="button" value="retour acceuil"> </a>
 </body>
+
+
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Supprimer un membre</title>
+</head>
+ <h1>Membre à supprimer</h1>
+    {% if envoi %}
+        Membre bbien supprimer!
+    {% endif %}
+    <div>
+         <h2> Supression Membre</h2>
+    <p>Introduire l'événement:</p>
+        <form action="{% url "supMembre" %}" method="post">
+             {% csrf_token %}
+             {{ form.as_p }}
+         <input type="submit" id="submit" value="Submit" />
+        </form>
+    </div>
+    <a href="http://127.0.0.1:8000/menu/acceuil/"> <input type="button" value="retour acceuil"> </a>
+</body>
+</html>
